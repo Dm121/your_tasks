@@ -331,4 +331,86 @@ public class Task {
     public void setAddrRemind(Set<Address> addresses){
         this.addrRemind = addresses;
     }
+    
+    @Override
+    public String toString(){
+        StringBuffer taskD = new StringBuffer();
+        taskD.append("Id: ");
+        taskD.append(this.idTask.toString());
+        taskD.append("\nSubject: ");
+        taskD.append(this.subject);
+        taskD.append("\nStart time: ");
+        taskD.append(this.startTime.toString());
+        taskD.append("\nDuration: ");
+        taskD.append(this.durationDays.toString());
+        taskD.append(" day(s) ");
+        taskD.append(this.durationHours.toString());
+        taskD.append(" hour(s) ");
+        taskD.append(this.durationMinutes.toString());
+        taskD.append(" minute(s).");
+        taskD.append("\nDescription of task:\n");
+        taskD.append(this.content);
+        taskD.append("\nComments:\n");
+        taskD.append(this.comments);
+        taskD.append("\nReminded: ");
+        if(this.remindFlag){
+            taskD.append("Yes.");
+        }
+        else { taskD.append("No."); }
+        //
+        taskD.append("\nType of task: ");
+        if(this.type != null){
+            taskD.append(this.type.getDescription());
+        }
+        else { taskD.append("Unknown"); }
+        taskD.append(".");
+        //
+        taskD.append("\nStatus of task: ");
+        if(this.status != null){
+            taskD.append(this.status.getDescription());
+        }
+        else { taskD.append("Unknown"); }
+        taskD.append(".");
+        //
+        taskD.append("\nPriority of task: ");
+        if(this.priority != null){
+            taskD.append(this.priority.getDescription());
+        }
+        else { taskD.append("Unknown"); }
+        taskD.append(".");
+        //
+        taskD.append("\nCategory of task: ");
+        if(this.category != null){
+            taskD.append(this.category.getName());
+        }
+        else { taskD.append("Unknown"); }
+        taskD.append(".");
+        //
+        taskD.append("\nCreator: ");
+        if(this.creator != null){
+            taskD.append(this.creator.toString());
+        }
+        else { taskD.append("Unknown"); }
+        taskD.append(".");
+        //
+        taskD.append("\nList of tags for task:");
+        if((this.tags != null) && (!this.tags.isEmpty())){
+            for(Tag tag : this.tags){
+                taskD.append(" ");
+                taskD.append(tag.getTagName());
+            }
+        }
+        else { taskD.append(" Not tags."); }
+        //
+        taskD.append("\nList of addresses for reminder about task: ");
+        if((this.addrRemind != null) && (!this.addrRemind.isEmpty())){
+            for(Address addr : this.addrRemind){
+                taskD.append("\n");
+                taskD.append(addr.getAddress());
+            }
+        }
+        else { taskD.append("Not addresses."); }
+        //
+        return taskD.toString();
+    } 
 }
