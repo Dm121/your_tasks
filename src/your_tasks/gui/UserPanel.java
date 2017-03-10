@@ -139,9 +139,9 @@ public class UserPanel extends JPanel{
      */
     public void formUserPanel(){
         final int SIZE_PHOTO = 128;
-        final int TITLE_WIDTH = 50;
+        final int TITLE_WIDTH = 80;
         final int DATA_WIDTH = 100;
-        final int BUTTON_WIDTH = 150;
+        final int BUTTON_WIDTH = 180;
         final int ELEM_HEIGHT = 25;
         //
         int i;  //for loop
