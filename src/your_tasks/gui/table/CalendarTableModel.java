@@ -139,7 +139,7 @@ public class CalendarTableModel extends AbstractTableModel{
         if((row > -1) && (row < this.getRowCount())){
             if((col > -1) && (col < this.getColumnCount())){
                 //test:
-                System.out.println(value.toString());
+                //System.out.println(value.toString());
                 //
                 this.getTableData().get(row).set(col, value.toString());
             }
