@@ -5,6 +5,9 @@
  */
 package your_tasks;
 
+import java.awt.EventQueue;
+import javax.swing.SwingUtilities;
+import your_tasks.gui.MainWindow;
 /**
  *
  * @author DOG1
@@ -16,6 +19,16 @@ public class Your_Tasks {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MainWindow mainWin = new MainWindow(null);
+        
+        //
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                mainWin.formGUI();
+            }
+        });
+        //
     }
     
 }
