@@ -105,7 +105,7 @@ public class MainWindow extends JFrame{
             public void actionPerformed(ActionEvent e){
                 int row, column;
                 column = getCalendarPanel().getTable().getSelectedColumn();
-                if(column != 0){
+                if(column > 0){
                     row = getCalendarPanel().getTable().getSelectedRow();
                     System.out.println("row: " + row + "; column: " + column);
                     System.out.println("value of cell: " + 
