@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Your_Tasks" default="ex" basedir=".">
+  <target name="ex">
+    <echo>${ant.project.name}</echo>
+    <echo>${java.class.path}</echo>
+  </target>
+</project>

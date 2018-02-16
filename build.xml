@@ -7,9 +7,48 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="Your_Tasks" default="default" basedir=".">
+<project name="Your_Tasks" default="all" basedir=".">
     <description>Builds, tests, and runs the project Your_Tasks.</description>
-    <import file="nbproject/build-impl.xml"/>
+    <!--import file="nbproject/build-impl.xml"/-->
+    <!--define name of directory-->
+    <property name="source" location="src"/>
+    <property name="build" location="build"/>
+    <property name="classes" location="${build}/classes"/>
+    <property name="jar" location="jardir"/>
+    <!--define all targets-->
+    <target name="all" depends="package">
+      <echo>Hello, World! How are you?</echo> 
+      <echo>I am fine.</echo> 
+      <echo>Ok!</echo>
+    </target>
+    <!---->
+    <target name="package" depends="compile">
+      <mkdir dir="${jar}"/>
+      <jar destfile="${jar}/${ant.project.name}.jar" basedir="${classes}">
+        <manifest file="manifest.mf">
+          <attribute name="Main-Class" value="your_tasks.${ant.project.name}"/>
+        </manifest>
+      </jar>
+    </target>
+    <!---->
+    <target name="compile">
+      <mkdir dir="${classes}"/>
+      <javac srcdir="${source}" destdir="${classes}" includeAntRuntime="false"/>
+    </target>
+    <!---->
+    <target name="run" depends="package">
+       <java jar="${jar}/${ant.project.name}.jar" fork="true">
+          <classpath>
+            <pathelement location="${jar}/${ant.project.name}.jar"/>
+            <pathelement path="${java.class.path}"/>
+          </classpath>
+       </java>
+    </target>
+    <!---->
+    <target name="clean">
+      <delete dir="${build}"/>
+      <delete dir="${jar}"/>
+    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 

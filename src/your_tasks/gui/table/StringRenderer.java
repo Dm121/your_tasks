@@ -5,6 +5,7 @@
  */
 package your_tasks.gui.table;
 
+/*OpenJDK 7 Here - Ok!*/
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
